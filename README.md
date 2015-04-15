@@ -1,2 +1,0 @@
-# Sharer
-A website project

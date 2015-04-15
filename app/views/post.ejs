@@ -1,0 +1,21 @@
+<% include header %>
+<link href="/css/edit.css" rel="stylesheet" type="text/css" />
+   <div class="title">
+      <p>发布帖子</p>
+   </div>
+   <div class="subject">
+      <input type="text" name="subject" placeholder="输入主题......"/>
+   </div>
+   <div class="content">
+      <p><span><input type="image" src="/img/gragh.jpg" />图片</span>
+	     <span><select name="school" class="select">
+		           <option>下沙</option>
+				   <option>桐乡</option>
+				   <option>不限</option>
+		       </select>
+		 </span>
+	  </p>
+	  <p><textarea name="content"></textarea></p>
+	  <p><input type="submit" value="发表"/></p>
+   </div>
+<% include footer %>

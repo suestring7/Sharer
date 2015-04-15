@@ -1,0 +1,50 @@
+<% include header %>
+<link href="/css/password.css" rel="stylesheet" type="text/css" />
+<script>
+  function show(s)
+ {
+        for(var i=1;i<=4;i++){
+            document.getElementById("div"+i).style.display = "none";
+        }
+		document.getElementById("div"+s).style.display = "";
+ }
+function hidden(s){
+document.getElementById("div"+s).style.display="none";
+//alert(document.getElementById("div").style.display)
+}
+</script>
+<style>
+.ratio{
+background:#000000;
+}
+</style>
+<div id="main" class="main">
+     <div class="title"><span>安全中心</span></div>
+	 <div class="choice">
+		        <input type="button" onclick="show(1)" name="mail" value="邮箱绑定"/>
+				<input type="button" onclick="show(2)" name="password" value="修改密码"/>
+				<input type="button" onclick="show(3)" name="telephone" value="手机绑定"/>
+				<input type="button" onclick="show(4)" name="login" value="登陆记录"/>
+	</div>
+	<div id="div1"  style="display:none" class="message">
+			   <p><span>绑定邮箱</span></p>
+			   <p><span><input type="text" /><input type="submit" value="发送验证码"/></span></p>
+			   <p><span><input type="text" placeholder="输入验证码" /><input type="submit" value="确认"/></span></p>
+	</div>
+    <div id="div2" style="display:none" class="message">
+	           <div width="100px"><p>旧密码</p></div>
+			   <p><input type="text" /></p>
+			   <p>新密码</p>
+			   <p><input type="text" /></p>
+			   <p>确认密码</p>
+			   <p><input type="text"/></p>
+			   <p><span><input type="submit" value="确认" /></span><span><input type="reset" value="取消" /></span></p>
+	</div>
+    <div id="div3" style="display:none" class="message">
+	            <p><span>手机绑定</span></p>
+			   <p><span><input type="text" /><input type="submit" value="发送验证码"/></span></p>
+			   <p><span><input type="text" placeholder="输入验证码" /><input type="submit" value="确认"/></span></p>
+	</div>
+	<div id="div4" style="display:none"></div>
+</div>
+<% include footer %>
