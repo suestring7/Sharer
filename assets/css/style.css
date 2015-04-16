@@ -1,6 +1,13 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-size: 105%;
+}
+
+@media(max-width: 1366px) {
+  body {
+    background-size: auto 105%;
+  }
 }
 
 a {
