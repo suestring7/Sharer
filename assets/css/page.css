@@ -1,9 +1,9 @@
 body{
-	background-image: url(/img/mainPage.png);
-
+	background-image: url(../img/mainPage.png);
+	
 }
 .title{
-	background-image: url(/img/title.png);
+	background-image: url(../img/title.png);
 	background-color: black;
 	opacity: 0.68;
 	z-index: 5;
@@ -38,7 +38,7 @@ height:10%;
 border-radius:10px;
 vertical-align:bottom;
 font-size:18px;
-}
+} 
 .tcontent{
 background:#999999;
 margin-top:3%;
@@ -78,4 +78,54 @@ td {
 
 th {
 	font-family: Arial, Helvetica, sans-serif;
+}
+.title{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 60px;
+	z-index: 9999;
+	float: left;
+	display: inline;
+	font-family: MicrosoftYaHeiUI;
+	font-size: 18px;
+	color: white;
+	line-height: 30px;
+	vertical-align: middle;
+	text-decoration: none;
+}
+.changeSchool{
+	margin-left: 250px;
+	margin-top: 15px;
+	margin-bottom: auto;
+	float: left;
+	display: inline;
+	position: relative;
+}
+ul{
+	top: 0;
+	float: left;
+	margin-left: 30px;
+	margin-top: 15px;
+}
+li{
+	float: left;
+	display: inline;
+	position: relative;
+	max-width: 139px;
+	margin-left: 40px;
+	font-size: 17px;
+}
+.searchBox{
+	margin-top: 15px;
+	float:right;
+	margin-right: 150px;
+}
+.footer{
+	color: white;
+  	padding-top: 6px;
+  	margin: 40px 0 20px 0;
+  	overflow: hidden;
+  	zoom: 1;
 }
