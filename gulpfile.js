@@ -8,6 +8,7 @@ gulp.task('develop', function () {
   nodemon({
     script: 'app.js',
     ext: 'js coffee ejs',
+    nodeArgs: ['--harmony']
   }).on('restart', function () {
     setTimeout(function () {
       livereload.changed(__dirname);
