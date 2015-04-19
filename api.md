@@ -19,8 +19,9 @@ GET '/api/user/signout'
 
 # Start up
 iojs / node 命令应该有反应(source ~/.nvm/nvm.sh)
-+ nvm use iojs
-+ nvm alias default iojs
+	
+	+nvm use iojs
+	+nvm alias default iojs
 
 首先保证MongoDB跑在27017端口(Robomongo)
 

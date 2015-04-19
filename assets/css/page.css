@@ -1,6 +1,9 @@
 body{
 	background-image: url(../img/mainPage.png);
-	
+}
+a{
+	text-decoration: none;
+	color: #fff;
 }
 .title{
 	background-image: url(../img/title.png);
@@ -16,7 +19,7 @@ body{
   bottom: 0;
   left: 0;
   background: rgba(0,0,0,.3);
-  z-index: 9998;//毛玻璃效果再议...
+  z-index: -9998;//毛玻璃效果再议...
 }
 #text_frame {
   width: 520px;
@@ -123,9 +126,38 @@ li{
 	margin-right: 150px;
 }
 .footer{
+	position: absolute;
+	bottom: 0;
 	color: white;
+	width: 100%;
   	padding-top: 6px;
-  	margin: 40px 0 20px 0;
+  	margin: 0;
   	overflow: hidden;
   	zoom: 1;
+  	background-color: black;
+	//opacity: 0.68;
+	z-index: 5;
+	margin:0;
+	font-size: 18px;
+}
+.publicColumn{
+	text-align: right;
+	float: left;
+	width: 200px;
+	background-color: rgba(255,255,255,.3);
+	margin-top: 5px;
+	padding:10px;
+	padding-right: 50px;
+}
+.publicColumn span{
+	color: white;
+	opacity: 1;
+}
+.footer_c{
+	//display: inline;
+	padding-left: 200px;
+	padding-right: 200px;
+	padding-bottom: 80px;
+	background-color: rgba(255,255,255,.3);
+	margin-left: 150px;
 }
