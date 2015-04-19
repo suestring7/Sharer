@@ -1,16 +1,23 @@
 express  = require 'express'
 router = express.Router()
 mongoose = require 'mongoose'
+Promise = require 'bluebird'
+
+Post = mongoose.model 'Post'
 
 module.exports = (app) ->
   app.use '/', router
 
-router.get '/', (req, res, next) ->
-  if !req.session.user? && !req.query.direct?
-    res.redirect 'welcome'
-  else
+router.get '/', Promise.coroutine (req, res, next) ->
+  try
+    if !req.session.user? && !req.query.direct?
+      return res.redirect 'welcome'
     res.render 'index',
       title: '首页 - Sharer'
+      user: req.session.user
+      posts: yield Post.find().execAsync()
+  catch e
+    res.send JSON.stringify e
 
 router.get '/welcome', (req, res, next) ->
   res.render 'welcome',
