@@ -69,38 +69,57 @@ body {
   border-radius:5px;
 }
 </style>
-<div class="main">
-  <div class="message">
-    <table  frame="box" class="">
-      <tr><td>寻找死飞小伙伴一名</td><td>桐乡</td><td>夜空中最长的胸毛</td></tr>
-      <tr><td><p>有玩死飞的小伙伴吗？...</p></td></tr>
-      <tr><td>已有导师</td><td>已有伙伴</td></tr>
-    </table>
+  <div style="display: none;">
+    <link href="/css/edit.css" rel="stylesheet" type="text/css" />
+    <div class="title">
+      <p>发布帖子</p>
+    </div>
+    <div class="subject">
+      <input type="text" name="subject" placeholder="输入主题......"/>
+    </div>
+    <div class="content">
+      <p><span><input type="image" src="/img/gragh.jpg" />图片</span>
+  	  <span><select name="school" class="select">
+  	    <option>下沙</option>
+  	    <option>桐乡</option>
+  		  <option>不限</option>
+  		</select></span>
+  	  </p>
+  	  <p><textarea name="content"></textarea></p>
+  	  <p><input type="submit" value="发表"/></p>
+    </div>
   </div>
-  <div class="message">
+  <div class="main">
+    <% for (var i = 0; i < posts.length; ++i) { %>
+    <% post = posts[i]; %>
+    <div class="message">
+      <table  frame="box" class="message-box">
+        <tr><td><h1><%= post.title %></h1></td><td><h2><%= post.address %></h2></td><td><h2><% post.author.username %></h2></td></tr>
+        <tr><td><p style="font-size: 120%;"><%= post.content %></p></td></tr>
+        <tr><td>已有导师</td><td>已有伙伴</td></tr>
+      </table>
+    </div>
+    <% } %>
+    <div class="more">
+      <table frame="box">
+        <a href="#">......</a>更多
+      </table>
+    </div>
   </div>
-  <div class="message">
+  <div class="sidebar">
+    <div class="img">
+      <img class="avatar-sm" src="/img/id.jpg" />
+      <p><%= user.username %></p>
+      <button type="button" class="button">我要发帖</button>
+    </div>
+    <div class="friends">
+      <table>
+        <tr><th></th><td><div class="friendtitle">良师益友</div></td></tr>
+        <tr><th>1</th><td></td></tr>
+        <tr><th>2</th><td></td></tr>
+        <tr><th>3</th><td></td></tr>
+        <tr><th></th><td><a href="#">更多</a></td></tr>
+      </table>
+    </div>
   </div>
-  <div class="more">
-    <table frame="box">
-      <a href="#">......</a>更多
-    </table>
-  </div>
-</div>
-<div class="sidebar">
-  <div class="img">
-    <img src="/img/id.jpg" />
-    <p>夜空中最长的胸毛</p>
-    <button type="button" class="button">我要发帖</button>
-  </div>
-  <div class="friends">
-    <table>
-      <tr><th></th><td><div class="friendtitle">良师益友</div></td></tr>
-      <tr><th>1</th><td></td></tr>
-      <tr><th>2</th><td></td></tr>
-      <tr><th>3</th><td></td></tr>
-      <tr><th></th><td><a href="#">更多</a></td></tr>
-    </table>
-  </div>
-</div>
 <% include footer %>

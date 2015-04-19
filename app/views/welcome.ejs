@@ -1,25 +1,48 @@
 <% include header %>
 <link href="/css/welcome.css" rel="stylesheet" type="text/css" />
 <div class="welc_t">
-	<h1>在漫漫长路的每一步</h1>
-	<h2>Every step of the way.</h2>
+  <h1>在漫漫长路的每一步</h1>
+  <h2>Every step of the way.</h2>
 </div>
-	<div class="form_box" id="login_box">
-		<div class="tx_bg" align="center" >
-			<div class="tx" align="center" id="avatar"></div>
-		</div>
-		<div class="form_input" align="center">
-			<span>账号</span><input style="background-color:transparent;border:0px;line-height:22px" type="username" name="username" class="form_control" required autofocus>
-		</div>
-		<div class="form_input">
-			<span>密码</span><input style="background-color:transparent;border:0px;line-height:22px" type="password" name="password" class="form_control" required>
-		</div>
-		<div class="wel_btn">
-			<button id="btn_l" type="submit" class="btn_l" name="login">登陆</button>
-			<button id="btn_s" type="submit" class="btn_s" name="signUp">注册</button>
-		</div>
-	</div>
-	<div class="footer" align="right">
-		<div align="bottom"></div><span><a href="/?direct=1">直接进入</a></span>
-	</div>
+  <div class="form_box" id="login_box">
+    <div class="tx_bg" align="center" >
+      <div class="tx" align="center" id="avatar"></div>
+    </div>
+    <div class="form_input" align="center">
+      <span>账号</span><input style="background-color:transparent;border:0px;line-height:22px" type="username" name="username" class="form_control" required autofocus>
+    </div>
+    <div class="form_input">
+      <span>密码</span><input style="background-color:transparent;border:0px;line-height:22px" type="password" name="password" class="form_control" required>
+    </div>
+    <div class="wel_btn">
+      <button id="signin" class="btn_l" name="signin">登陆</button>
+      <button id="signup" class="btn_s" name="signup">注册</button>
+    </div>
+  </div>
+  <div class="footer" align="right">
+    <div align="bottom"></div><span><a href="/?direct=1">直接进入</a></span>
+  </div>
+  <script type="text/coffeescript">
+  $ ->
+    $('#signin').click ->
+      body =
+        username: $('input[name="username"]').val()
+        password: $('input[name="password"]').val()
+      $.post '/api/user/signin', body, (res, status) ->
+        console.log res
+        if res.code isnt 0
+          alert '无效的用户名或密码'
+        else
+          window.location.href = '/'
+    $('#signup').click ->
+      body =
+        username: $('input[name="username"]').val()
+        password: $('input[name="password"]').val()
+      $.post '/api/user/signup', body, (res, status) ->
+        console.log res
+        if res.code isnt 0
+          alert '注册失败'
+        else
+          window.location.href = '/'
+  </script>
 <% include footer %>

@@ -1,9 +1,9 @@
 require('coffee-script/register');
-
+var Promise = require('bluebird');
 var express = require('express'),
   config = require('./config/config'),
   glob = require('glob'),
-  mongoose = require('mongoose');
+  mongoose = Promise.promisifyAll(require('mongoose'));
 
 mongoose.connect(config.db);
 var db = mongoose.connection;
@@ -19,5 +19,6 @@ var app = express();
 
 require('./config/express')(app, config);
 
-app.listen(config.port);
-
+app.listen(config.port, function () {
+  console.log("Express at port " + config.port);
+});

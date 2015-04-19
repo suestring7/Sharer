@@ -8,6 +8,8 @@ bodyParser = require 'body-parser'
 compress = require 'compression'
 methodOverride = require 'method-override'
 session = require 'express-session'
+mongoose = require 'mongoose'
+MongoStore = require('connect-mongo')(session)
 
 module.exports = (app, config) ->
   app.set 'views', config.root + '/app/views'
@@ -30,6 +32,8 @@ module.exports = (app, config) ->
     secret: config.secret
     resave: false
     saveUninitialized: true
+    store: new MongoStore
+      mongooseConnection: mongoose.connection
 
   controllers = glob.sync config.root + '/app/controllers/**/*.coffee'
   controllers.forEach (controller) ->

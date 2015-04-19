@@ -5,47 +5,157 @@ Promise = require 'bluebird'
 Is = require 'is_js'
 
 User = mongoose.model 'User'
+Post = mongoose.model 'Post'
 
 module.exports = (app) ->
   app.use '/api', router
 
-router.post '/user/signup', (req, res, next) ->
-  Promise.coroutine ->
-    try
-      user = yield User.create
-        username: req.body.username
-        password: req.body.password
-      req.session.user = user
-      res.json
-        code: 0
-        message: 'OK'
-    catch e
-      res.json
-        code: 1
-        message: e.message
+router.post '/user/signup', Promise.coroutine (req, res, next) ->
+  try
+    user = new User
+      username: req.body.username
+      password: req.body.password
+    yield user.saveAsync()
+    req.session.user = user
+    res.json
+      code: 0
+      message: 'OK'
+  catch e
+    res.json
+      code: 1
+      error: e
 
-router.post '/user/signin', (req, res, next) ->
-  Promise.coroutine ->
-    try
-      user = yield User.findOne(
-        username: req.body.username
-        password: req.body.password
-      )
-      if user?
-        req.session.user = user
-        res.json
-          code: 0
-          message: 'OK'
-          _id: user._id
-      else
-        throw new Error('Invalid username or password')
-    catch e
-      res.json
+router.post '/user/signin', Promise.coroutine (req, res, next) ->
+  try
+    user = yield User.findOne
+      username: req.body.username
+      password: req.body.password
+    .execAsync()
+    if !user?
+      return res.json
         code: 1
-        message: e.message
+        error: 'Incorrect username or password'
+    req.session.user = user
+    res.json
+      code: 0
+      message: 'OK'
+      _id: user._id
+  catch e
+    res.json
+      code: 1
+      error: e
 
 router.get '/user/signout', (req, res, next) ->
   req.session.user = undefined
   res.json
     code: 0
     message: 'OK'
+
+router.post '/user/update_password', Promise.coroutine (req, res, next) ->
+  try
+    if !req.session.user?
+      return res.status(403).json
+        code: 1
+        error: 'Not logged in'
+    user = yield User.findById(req.session.user._id).execAsync()
+    user.password = req.body.password
+    yield user.saveAsync()
+    res.json
+      code: 0
+      message: 'OK'
+  catch e
+    res.json
+      code: 1
+      message: e
+
+router.get '/post/new', Promise.coroutine (req, res, next) ->
+  try
+    if !req.session.user?
+      return res.status(403).json
+        code: 1
+        error: 'Not logged in'
+    post = new Post
+      title: req.body.title
+      content: req.body.content
+      address: req.body.address
+      author: req.session.user
+    yield post.saveAsync()
+    res.json
+      code: 0
+      message: 'OK'
+  catch e
+    res.json
+      code: 1
+      error: e
+
+router.post '/post/:id/modify', Promise.coroutine (req, res, next) ->
+  try
+    if !req.session.user?
+      return res.status(403).json
+        code: 1
+        error: 'Not logged in'
+    postId = req.params.id
+    post = yield Post.findById(postId).populate('author').execAsync()
+    author = post.author
+    if author.id isnt req.session.user.id
+      return res.status(403).json
+        code: 1
+        error: 'No permission'
+    yield post.update(req.body).execAsync()
+    res.json
+      code: 0
+      message: 'OK'
+  catch e
+    res.json
+      code: 1
+      error: e
+
+router.get '/post/:id/leaders/new', Promise.coroutine (req, res, next) ->
+  try
+    if !req.session.user?
+      return res.status(403).json
+        code: 1
+        error: 'Not logged in'
+    postId = req.params.id
+    post = yield Post.findById(postId).execAsync()
+    post.leaders.push req.session.user
+    yield post.saveAsync()
+    res.json
+      code: 0
+      message: 'OK'
+  catch e
+    res.json
+      code: 1
+      error: e
+
+router.get '/post/:id/friends/new', Promise.coroutine (req, res, next) ->
+  try
+    if !req.session.user?
+      return res.status(403).json
+        code: 1
+        error: 'Not logged in'
+    postId = req.params.id
+    post = yield Post.findById(postId).execAsync()
+    post.friends.push req.session.user
+    yield post.saveAsync()
+    res.json
+      code: 0
+      message: 'OK'
+  catch e
+    res.json
+      code: 1
+      error: e
+
+router.get '/post/:id/members', Promise.coroutine (req, res, next) ->
+  try
+    postId = req.params.id
+    post = yield Post.findById(postId).populate('author').populate('leaders').populate('friends').execAsync()
+    res.json
+      code: 0
+      author: post.author
+      leaders: post.leaders
+      friends: post.friends
+  catch e
+    res.json
+      code: 1
+      error: e

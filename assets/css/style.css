@@ -17,3 +17,14 @@ body {
 a {
   color: #00B7FF;
 }
+
+.avatar-sm {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+}
+
+.message-box {
+  height: 200px;
+  width: 800px;
+}
