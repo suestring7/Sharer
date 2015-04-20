@@ -38,3 +38,11 @@ router.get '/posts', (req, res, next) ->
 router.get '/ranklist', (req, res, next) ->
   res.render 'ranklist',
     title: '排名 - Sharer'
+
+router.get '/search_post', (req, res, next) ->
+  res.render 'search_post',
+    title: '搜索结果 - Sharer'
+
+router.get '/search_person', (req, res, next) ->
+  res.render 'search_person',
+    title: '搜索结果 - Sharer'  

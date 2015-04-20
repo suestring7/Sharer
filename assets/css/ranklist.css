@@ -1,12 +1,71 @@
 .t_rank{
-
+	margin: 80px 80px;
+	padding: 10px;
+	background-color: rgba(0,0,0,.3);
+  	border-radius: 20px;
+  	width: 70%;
+  	height: 450px;
 }
 .rtitle{
-
+	background-color: #000;
+	color: #fff;
+	margin: 5px;
+	padding: 5px;
+	padding-left: 20px;
+	font-size: 30px;
+	border-radius: 18px;
+}
+.rnum{
+	background-color: rgba(255,255,255,.3);
+	padding-left: 10px;
+	height: 80%;
+	width: 3%;
+	border-radius: 10px;
+	float: left;
 }
 .rtable{
-
+	margin-left: -20px;
+	width: 80%;
+	float: top;
+	color: #fff;
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	text-decoration: none;
+	padding: 0;
+}
+.rtable li{
+	line-height: 30px;
+	margin-left: 0;
+	float: none;
+	max-width: 1000px;
+	width: 1000px;
+	display: inline-block;
+	overflow: hidden;
+}
+em{
+	float:left;
+	display: inline;
+	font-style: normal;
+	font-variant: normal;
+	text-decoration: none;
+	margin-right: 30px;
+}
+.rtx{
+	width: 50px;
 }
 .paginator{
-	
+	padding: 10px;
+	text-align: right;
+	float: right;
+	width: 100%;
+	color: white;
+}
+.paginator a{
+	border-style: solid;
+	border-color: white;
+	border-width: 1px;
+	padding: 2px 3px;
+	margin-right: 2px;
+	//min-width: 10px;
 }

@@ -13,6 +13,7 @@ a{
 	margin:0;
 }
 .black-overlay {
+  display: none;
   position: fixed;
   top: 0;
   right: 0;
@@ -22,12 +23,12 @@ a{
   z-index: -9998;//毛玻璃效果再议...
 }
 #text_frame {
+  display: none;//再议...
   width: 520px;
   background: rgba(0,0,0,.3);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin: -155px 0 0 -260px;
+  position: absolute;
+  margin-top: 10%;
+  margin-left: 30%;
   text-align: center;
   padding: 30px 0 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,.3);
@@ -148,10 +149,6 @@ li{
 	margin-top: 5px;
 	padding:10px;
 	padding-right: 50px;
-}
-.publicColumn span{
-	color: white;
-	opacity: 1;
 }
 .footer_c{
 	//display: inline;
