@@ -1,5 +1,6 @@
 body {
 	background-image:url(/img/wel_bg.png);
+	width: 100%;
 	font-family:YouYuan;
 }
 .welc_t {

@@ -1,33 +1,37 @@
 body  {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'MicrosoftYaHeiUI', Arial, Helvetica, sans-serif;
 	background-image:url(/img/background.jpg);
 }
-div#left {
-width:20%;
+div#left{
+width:350px;
 float:left;
-padding-left:10%;
-padding-right:10%;
+position:absolute;
+padding-left:100px;
+padding-right:100px;
 }
-div#img {
-margin-top:30%;
+div#img{
+margin-top:100px;
 }
-div#name {
+div#name{
 color:#FFFFFF;
-background:#000000;
-opacity:0.6;
+background-color:rgba(0,0,0,0.6);
+font-size:22px;
+font-family:'MicrosoftYaHeiUI';
 border-radius:10px;
-padding:5% 5% 5% 5%;
-margin-bottom:10%;
+padding-left:5px;
+padding-right:5px;
+margin-bottom:20px;
 }
-div#name input[type=button] {
+div#name input[type=button]{
 color:#FFFFFF;
-border:2px solid #000000;
-background:#000000;
-opacity=0.6;
+border:2px rgba(0,0,0,0);
+background-color:rgba(0,0,0,0);
+font-size:20px;
+font-family:'YouYuan';
 float:right;
 }
-.information {
-background-color:#FFFFFF;
+.information{
+background-color:rgba(255,255,255,0.5);;
 padding-left:5px;
 padding-top:5px;
 padding-bottom:5px;
@@ -35,63 +39,68 @@ padding-right:5px;
 border-radius:10px;
 margin-top:10px;
 margin-bottom:10px;
-opacity:0.6;
+font-size:20px;
+font-family:'YouYuan';
 }
-div#right {
-width:60%;
-height:80%;
+div#right{
+position:absolute;
 float:left;
 }
-div#top {
+div#top{
+position:absolute;
 height:500px;
-width:80%;
-margin-top:10%;
+width:700px;
+margin-top:100px;
+margin-left:600px;
 color:#FFFFFF;
-background-color:#000000;
-opacity:0.6;
+background-color:rgba(0,0,0,0.6);
 padding-left:10px;
 padding-top:5px;
 padding-bottom:5px;
 padding-right:5px;
 border-radius:10px;
 }
-div#bottom {
-margin-top:20px;
-margin-left:70px;
+div#bottom{
+margin-top:650px;
+margin-left:650px;
 margin-right:80px;
-width:auto;
+width:600px;
 }
-span li {
+span li{
 font-size:24px;
 }
-.time {
+.time{
 font-size:18px;
 }
-.new {
+.new{
 font-size:30px;
 }
-.choice {
+.choice{
 float:right;
-v}
-.page {
-background:#000000;
+position:absolute;
+margin-top:300px;
+margin-left:450px;
+background-color:rgba(0,0,0,0);
+}
+.choice .page{
+background-color:rgba(0,0,0,0);
 color:#FFFFFF;
 border:2px solid #FFFFFF;
 }
-.page2 {
+.page2{
 opacity:0.6;
 }
-.head1 {
+.head1{
 height:80px;
 width:80px;
-border-radius:80px;
+border-radius:40px;
 margin-right:40px;
 margin-bottom:30px;
 }
-.head2 {
+.head2{
 height:50px;
 width:50px;
-border-radius:50px;
+border-radius:25px;
 margin-left:40px;
 margin-right:40px;
 margin-bottom:50px;

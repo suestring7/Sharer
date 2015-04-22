@@ -1,30 +1,35 @@
-body {
+body{
 background-image:url(/img/background.jpg);
 }
-.main {
+.main{
 color:#FFFFFF;
-background-color:#000000;
-opacity:0.6;
+background-color:rgba(0,0,0,0.6);
 width:1000px;
 height:500px;
 margin-left:50px;
 margin-top:30px;
 padding:40px;
-border-radius:10px;
+border-radius:10px; 
 }
-.title {
-font-size:36px;
+.ctitle{
+opacity:1;
 color:#FFFFFF;
 line-height:40px;
+font-size:36px;
+font-family:'Microsoft YaHei UI';
 }
-.content {
+.content{
+opacity:1;
 font-size:24px;
+font-family:'Microsoft YaHei UI';
 line-height:25px;
 color:#FFFFFF;
 }
-.down {
+.down{
+opacity:1;
 font-size:24px;
+font-family:'Microsoft YaHei UI';
 color:#FFFFFF;
-line-height:24px;
+line-height:40px;
 margin-top:60px;
 }

@@ -46,3 +46,7 @@ router.get '/search_post', (req, res, next) ->
 router.get '/search_person', (req, res, next) ->
   res.render 'search_person',
     title: '搜索结果 - Sharer'  
+
+router.get '/security', (req, res, next) ->
+  res.render 'security',
+    title: '安全中心 - Sharer' 

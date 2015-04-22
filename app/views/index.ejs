@@ -1,125 +1,100 @@
 <% include header %>
-<style type="text/css">
-body {
-  background-image:url(/img/background.jpg);
-  background-size:105%;
+
+<link href="/css/index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+function openwin()
+{
+   document.getElementById("edit").style.display='block';  
+  // document.getElementById("main").style.display='none';
+  document.getElementById("main").style.opacity=0.3; 
+  document.getElementById("sidebar").style.opacity=0.3; 
+  // document.getElementById("sidebar").style.display='none';  
 }
-.main{
-  float:left;
-  background-color:#CCCCCC;
-  filter:alpha(opacity=60);
-  opacity:0.6;
-  padding:10px;
-  margin-left:10%;
-  margin-top:100px;
-}
-.message{
-  margin-top:5px;
-  margin-bottom:5px;
-  background-color:#FFFFFF;
-  width:800px;
-  height:200px;
-  opacity:1;
-}
-.more{
-  text-align:right;
-  color:#FFFFFF;
-  background-color:#000000;
-  height:50px;
-}
-.sidebar{
-  float:right;
-  margin-right:10%;
-  margin-top:5%;
-}
-.img{
-  -moz-border-radius: 70px;
-  -webkit-border-radius: 70px;
-  border-radius: 70px;
-  text-align:center;
-}
-.button{
-  color:#FFFFFF;
-  text-align:center;
-  border:2px solid #000000;
-  padding:10px 40px;
-  background:#000000;
-  width:350px;
-  border-radius:25px;
-}
-.friends{
-  margin-top:20px;
-  text-align:center;
-  border:2px solid #000000;
-  background:#000000;
-  filter:alpha(opacity=60);
-  opacity:0.6;
-  height:400px;
-  width:400px;
-  padding:10px;
-  border-radius:25px;
-}
-.friendtitle{
-  color:#FFFFFF;
-  border:2px solid #FFFFFF;
-  background:#000000;
-  opacity:1.0;
-  height:auto;
-  width:350px;
-  border-radius:5px;
-}
-</style>
-  <div style="display: none;">
-    <link href="/css/edit.css" rel="stylesheet" type="text/css" />
-    <div class="title">
-      <p>发布帖子</p>
-    </div>
-    <div class="subject">
-      <input type="text" name="subject" placeholder="输入主题......"/>
-    </div>
-    <div class="content">
-      <p><span><input type="image" src="/img/gragh.jpg" />图片</span>
-  	  <span><select name="school" class="select">
-  	    <option>下沙</option>
-  	    <option>桐乡</option>
-  		  <option>不限</option>
-  		</select></span>
-  	  </p>
-  	  <p><textarea name="content"></textarea></p>
-  	  <p><input type="submit" value="发表"/></p>
-    </div>
-  </div>
-  <div class="main">
+  function Lock_CheckForm(theForm){   
+   document.getElementById("edit").style.display='none';
+  document.getElementById("main").style.opacity=1; 
+  document.getElementById("sidebar").style.opacity=1; 
+  return false;   
+   } 
+</script>
+    <div class="main" id="main">     
     <% for (var i = 0; i < posts.length; ++i) { %>
     <% post = posts[i]; %>
+      <div class="message">
+        <div class="information">
+          <input type="image" src="/img/bubble.png" class="bubble"/>
+          <span class="message_num"><%= post.id %></span>   <!-- 喵要加上去哇！！！ -->
+          <span class="message_title"><%= post.title %></span>
+          <span class="message_place"><%= post.address %></span>
+          <span class="message_sender"><%= post.author.username %></span>
+         </div>
+         <div class="message_content">
+            <p><%= post.content %></p>
+         </div>
+         <div class="message_tail">
+              <span class="tutor">已有导师</span>
+          <input type="image" src="/img/tutor1.png" />
+          <input type="image" src="/img/tutor2.png" />
+          <span>......</span>
+          <span class="tutor">已有伙伴</span>
+          <input type="image" src="/img/company1.png" />
+              <span class="good"><input type="image" src="/img/good.png" style="margin-right:10px" />21</span>        
+            </div>
+      </div>
+    <% } %> 
     <div class="message">
-      <table  frame="box" class="message-box">
-        <tr><td><h1><%= post.title %></h1></td><td><h2><%= post.address %></h2></td><td><h2><% post.author.username %></h2></td></tr>
-        <tr><td><p style="font-size: 120%;"><%= post.content %></p></td></tr>
-        <tr><td>已有导师</td><td>已有伙伴</td></tr>
-      </table>
+           <input type="image" src="/img/bubble.png" class="bubble"/>        
     </div>
-    <% } %>
+    <div class="message">
+           <input type="image" src="/img/bubble.png" class="bubble"/>
+    </div>
+    <div class="message">
+           <input type="image" src="/img/bubble.png" class="bubble"/>
+    </div>
     <div class="more">
-      <table frame="box">
-        <a href="#">......</a>更多
-      </table>
+               <div class="more_content"><a href="#">......</a><span>更多</span></div>
     </div>
   </div>
-  <div class="sidebar">
-    <div class="img">
-      <img class="avatar-sm" src="/img/id.jpg" />
-      <p><%= user.username %></p>
-      <button type="button" class="button">我要发帖</button>
+  <div class="sidebar" id="sidebar">
+      <div class="img">
+       <img src="/img/id.jpg" />
+       <p><%= user.username %></p>
+       <button type="button" class="button" onclick="openwin()">我要发帖</button>
     </div>
     <div class="friends">
-      <table>
-        <tr><th></th><td><div class="friendtitle">良师益友</div></td></tr>
-        <tr><th>1</th><td></td></tr>
-        <tr><th>2</th><td></td></tr>
-        <tr><th>3</th><td></td></tr>
-        <tr><th></th><td><a href="#">更多</a></td></tr>
-      </table>
+                <div class="friendtitle">良师益友</div>
+        <div class="rank">
+            <div style="margin-bottom:30px"><span>1</span></div>
+            <div style="margin-bottom:30px"><span>2</span></div>
+            <div style="margin-bottom:30px"><span>3</span></div>
+        </div>
+        <div class="head">
+                <div style="margin-top:10px"><input type="image" src="/img/rank1.png"  /></div>
+            <div class="rectangle"></div>
+            <div style="margin-top:10px"><input type="image" src="/img/rank2.png"  /></div>
+        </div>
     </div>
   </div>
+    <div class="edit" id="edit" style="display:none" >
+          <input type="image"  src="/img/close.png" onclick="Lock_CheckForm(this)"/>
+      <div class="atitle">
+          <p>发布帖子</p>
+         </div>
+         <div class="subject">
+          <input type="text" name="subject" placeholder="输入主题......"/>
+         </div>
+         <div class="content">
+           <input type="image" src="/img/gragh.jpg" />
+           <span>图片</span>
+           <select name="school" class="select">
+                 <option>下沙</option>
+                 <option>桐乡</option>
+                 <option>不限</option>
+           </select>
+          <p><input type="text" name="content" class="edit_content"/></p>
+      </div>
+      <div style="height:30px"><input type="submit" value="发表"/></div>
+  </div>
+
+
 <% include footer %>
