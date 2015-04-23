@@ -107,13 +107,13 @@ th {
 	display: inline;
 	position: relative;
 }
-.menu ul, .footer_c ul{
+.menu ul, .footer_c ul, .rtable{
 	top: 0;
 	float: left;
 	margin-left: 30px;
 	margin-top: 15px;
 }
-.menu li, .footer_c li{
+.menu li, .footer_c li, .rtable li{
 	float: left;
 	display: inline;
 	position: relative;
