@@ -1,16 +1,3 @@
-body{
-background-image:url(/img/background.jpg);
-}
-.main{
-color:#FFFFFF;
-background-color:rgba(0,0,0,0.6);
-width:1000px;
-height:500px;
-margin-left:50px;
-margin-top:30px;
-padding:40px;
-border-radius:10px; 
-}
 .ctitle{
 opacity:1;
 color:#FFFFFF;
@@ -18,7 +5,7 @@ line-height:40px;
 font-size:36px;
 font-family:'Microsoft YaHei UI';
 }
-.content{
+.ccontent{
 opacity:1;
 font-size:24px;
 font-family:'Microsoft YaHei UI';
@@ -32,4 +19,7 @@ font-family:'Microsoft YaHei UI';
 color:#FFFFFF;
 line-height:40px;
 margin-top:60px;
+}
+p{
+	margin-top: 10px;
 }

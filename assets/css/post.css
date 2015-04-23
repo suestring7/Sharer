@@ -30,6 +30,9 @@
 	width: 100%;
 	text-align: right;
 }
+.pf img{
+	width:20px;
+}
 .pcontent{
 	vertical-align: center;
 	text-align: center;

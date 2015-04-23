@@ -50,3 +50,7 @@ router.get '/search_person', (req, res, next) ->
 router.get '/security', (req, res, next) ->
   res.render 'security',
     title: '安全中心 - Sharer' 
+
+router.get '/user', (req, res, next) ->
+  res.render 'user',
+    title: '个人中心 - Sharer' 

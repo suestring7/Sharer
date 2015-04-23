@@ -10,15 +10,16 @@ function openwin()
   document.getElementById("sidebar").style.opacity=0.3; 
   // document.getElementById("sidebar").style.display='none';  
 }
-  function Lock_CheckForm(theForm){   
+  function Lock_CheckForm(theForm)
+{   
    document.getElementById("edit").style.display='none';
   document.getElementById("main").style.opacity=1; 
   document.getElementById("sidebar").style.opacity=1; 
   return false;   
-   } 
+} 
 </script>
     <div class="main" id="main">     
-    <% for (var i = 0; i < posts.length; ++i) { %>
+    <% for (var i = 0; i < posts.lengths; ++i) { %>
     <% post = posts[i]; %>
       <div class="message">
         <div class="information">
@@ -60,25 +61,29 @@ function openwin()
        <img src="/img/id.jpg" />
        <p><%= user.username %></p>
        <button type="button" class="button" onclick="openwin()">我要发帖</button>
-    </div>
+      </div>
     <div class="friends">
                 <div class="friendtitle">良师益友</div>
         <div class="rank">
-            <div style="margin-bottom:30px"><span>1</span></div>
+        <!--    <div style="margin-bottom:30px"><span>1</span></div>
             <div style="margin-bottom:30px"><span>2</span></div>
             <div style="margin-bottom:30px"><span>3</span></div>
-        </div>
-        <div class="head">
-                <div style="margin-top:10px"><input type="image" src="/img/rank1.png"  /></div>
-            <div class="rectangle"></div>
-            <div style="margin-top:10px"><input type="image" src="/img/rank2.png"  /></div>
-        </div>
+            -->
+        </div> 
+        <ul class="head">
+            <li><span>1</span><input type="image" src="/img/rank1.png"  /></li>
+            <!--传良师益友用户头像和ID给我 -->
+            <li><span>2</span><input type="image" src="/img/rank2.png"  /></li>
+            <li><span>3</span><input type="image" src="/img/rank2.png"  /></li>
+        </ul>
+
+    <a href="#"><span style="location:absolute;margin-top:68%;margin-right:10px;float:right">更多</span></a>
     </div>
   </div>
     <div class="edit" id="edit" style="display:none" >
-          <input type="image"  src="/img/close.png" onclick="Lock_CheckForm(this)"/>
+          <div class="close"><input type="image"  src="/img/close.png" onclick="Lock_CheckForm(this)"/></div>
       <div class="atitle">
-          <p>发布帖子</p>
+         发布帖子
          </div>
          <div class="subject">
           <input type="text" name="subject" placeholder="输入主题......"/>
@@ -91,10 +96,25 @@ function openwin()
                  <option>桐乡</option>
                  <option>不限</option>
            </select>
-          <p><input type="text" name="content" class="edit_content"/></p>
+          <textarea type="text" name="content" class="edit_content"></textarea>
       </div>
-      <div style="height:30px"><input type="submit" value="发表"/></div>
+      <div style="height:30px"><button id="submit" class="btn" name="sbmt">发表</button> </div>
   </div>
-
+<script type="text/coffeescript">
+  $ ->
+    $('#submit').click ->
+      body =
+        title: $('input[name="subject"]').val()
+        content: $('input[name="content"]').val()
+        address: $('input[name="school"]').val()
+      session =
+        user: $('input[name=""]').val()
+      $.post '/api/post/new', body, (res, status) ->
+        console.log res
+        if res.code isnt 0
+          alert '无效的用户名或密码'
+        else
+          window.location.href = '/'
+  </script>
 
 <% include footer %>

@@ -13,17 +13,17 @@ a{
 	margin:0;
 }
 .black-overlay {
-  display: none;
+  //display: none ;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   background: rgba(0,0,0,.3);
-  z-index: -9998;//毛玻璃效果再议...
+  z-index: 9998;//毛玻璃效果再议...
 }
 #text_frame {
-  display: none;//再议...
+  //display: none;//再议...
   width: 520px;
   background: rgba(0,0,0,.3);
   position: absolute;
@@ -107,13 +107,13 @@ th {
 	display: inline;
 	position: relative;
 }
-ul{
+.menu ul, .footer_c ul{
 	top: 0;
 	float: left;
 	margin-left: 30px;
 	margin-top: 15px;
 }
-li{
+.menu li, .footer_c li{
 	float: left;
 	display: inline;
 	position: relative;
@@ -157,4 +157,107 @@ li{
 	padding-bottom: 80px;
 	background-color: rgba(255,255,255,.3);
 	margin-left: 150px;
+}
+.main {
+color:#FFFFFF;
+background-color:rgba(0,0,0,0.6);
+width: 60%;
+min-width:800px;
+height: 80%;
+min-height:400px;
+margin-left:15%;
+margin-top:100px;
+padding:40px;
+border-radius:10px;
+padding-bottom: 30px;
+}
+.close{
+	float: right;
+	border-radius: 5px;
+	padding: 2px 7px;
+	margin-top: -33px;
+	background-color: rgba(0,0,0,.6);
+}
+.edit{
+position:absolute;
+margin-left: 25%;
+margin-right: 25%;
+top: 100px;
+margin-bottom: 5%;
+width:600px;
+min-height:400px;
+padding-bottom: 20px;
+background-color:rgba(0,0,0,0.6);
+border-radius:15px;
+text-align:left;
+}
+.atitle{
+margin: 7px;
+padding: 5px;
+background-color:#000000;
+padding-left:10px;
+color:#FFFFFF;
+border-radius:10px;
+font-size:24px;
+font-family:'Microsoft YaHei UI';
+} 
+.subject input[type=text]{
+padding: 5px;
+margin: 10px;
+margin-left: 20px;
+width:90%;
+font-size:30px;
+font-family:'MicrosoftYaHeiUI';
+text-align:left;
+}
+.content{
+background-color:rgba(153,153,153,0.6);
+min-height:240px;
+margin: 15px;
+margin-top:5px;
+margin-bottom: 10px;
+border-radius:10px;
+padding:15px;
+font-size:24px;
+font-family:'MicrosoftYaHeiUI';
+}
+.content span{
+color:#FFFFFF;
+margin-right:20px;
+height:50px;
+padding-bottom:5px;
+text-align:center;
+vertical-align: super;
+}
+.content select{
+background-color:rgba(153,153,153,0.6);
+color:#FFFFFF;
+width:80px;
+height:30px;
+border-radius:5px;
+text-align:center;
+vertical-align: super;
+font-size:20.15px;
+font-family:'MicrosoftYaHeiUI';
+}
+.edit_content{
+background:#FFFFFF;
+margin-top: 0;
+margin: 15px;
+margin-left: 0px;
+margin-right: 0px;
+width: 99%;
+height: 55%;
+min-height:180px;
+text-align: left;
+}
+.btn{
+color:#FFFFFF;
+background-color:#0066FF;
+border-radius:5px;
+padding:5px 20px 5px 20px;
+border:none;
+font-size:20px;
+margin-top:0;
+margin-left: 15px;
 }
