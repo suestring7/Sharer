@@ -1,12 +1,14 @@
-body{
+body {
 	background-image: url(../img/mainPage.png);
+	background-repeat: no-repeat;
 }
-a{
+a {
 	text-decoration: none;
 	color: #fff;
 }
 .title{
 	background-image: url(../img/title.png);
+	background-repeat: no-repeat;
 	background-color: black;
 	opacity: 0.68;
 	z-index: 5;
@@ -42,7 +44,7 @@ height:10%;
 border-radius:10px;
 vertical-align:bottom;
 font-size:18px;
-} 
+}
 .tcontent{
 background:#999999;
 margin-top:3%;
@@ -200,7 +202,7 @@ color:#FFFFFF;
 border-radius:10px;
 font-size:24px;
 font-family:'Microsoft YaHei UI';
-} 
+}
 .subject input[type=text]{
 padding: 5px;
 margin: 10px;
