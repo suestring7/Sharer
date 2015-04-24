@@ -136,7 +136,7 @@ router.post '/post/:id/modify', Promise.coroutine (req, res, next) ->
       code: 1
       error: e
 
-router.post '/post/:id/comment', Promise.coroutine (req, res, next) ->
+router.post '/post/:id/comment/new', Promise.coroutine (req, res, next) ->
   try
     if !req.session.user?
       return res.status(403).json
