@@ -32,13 +32,13 @@ background:#000000;
 			   <p><span><input type="text" placeholder="输入验证码" /><input type="submit" value="确认"/></span></p>
 	</div>
     <div id="div2" style="display:none" class="message">
-	           <div width="100px"><p>旧密码</p></div>
-			   <p><input type="text" /></p>
-			   <p>新密码</p>
-			   <p><input type="text" /></p>
-			   <p>确认密码</p>
-			   <p><input type="text"/></p>
-			   <p><span><input type="submit" value="确认" /></span><span><input type="reset" value="取消" /></span></p>
+	      <div width="100px"><p>旧密码</p></div>
+			  <p><input type="password" name="old" /></p>
+			  <p>新密码</p>
+			  <p><input type="password" name="password" /></p>
+			  <p>确认密码</p>
+			  <p><input type="password" name="repeat" /></p>
+			  <p><span><input id="modify-password" type="submit" value="确认" /></span><span><input type="reset" value="取消" /></span></p>
 	</div>
     <div id="div3" style="display:none" class="message">
 	            <p><span>手机绑定</span></p>
@@ -47,4 +47,17 @@ background:#000000;
 	</div>
 	<div id="div4" style="display:none"></div>
 </div>
+<script type="text/coffeescript">
+$ ->
+  $('#modify-password').click ->
+    $.post '/api/user/password/update',
+      old: $('input[name=old]').val()
+      password: $('input[name=password]').val()
+      repeat: $('input[name=repeat]').val()
+    , (data, status) ->
+      if data.code isnt 0
+        alert('旧密码错误')
+      else
+        alert('修改成功')
+</script>
 <% include footer %>

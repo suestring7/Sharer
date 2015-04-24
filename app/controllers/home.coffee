@@ -15,7 +15,7 @@ router.get '/', Promise.coroutine (req, res, next) ->
     res.render 'index',
       title: '首页 - Sharer'
       user: req.session.user
-      posts: yield Post.find().execAsync()
+      posts: yield Post.find().sort('-updatedAt').execAsync()
   catch e
     res.send JSON.stringify e
 
@@ -45,12 +45,8 @@ router.get '/search_post', (req, res, next) ->
 
 router.get '/search_person', (req, res, next) ->
   res.render 'search_person',
-    title: '搜索结果 - Sharer'  
+    title: '搜索结果 - Sharer'
 
 router.get '/security', (req, res, next) ->
   res.render 'security',
-    title: '安全中心 - Sharer' 
-
-router.get '/user', (req, res, next) ->
-  res.render 'user',
-    title: '个人中心 - Sharer' 
+    title: '安全中心 - Sharer'

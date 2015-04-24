@@ -4,56 +4,47 @@
 <script type="text/javascript">
 function openwin()
 {
-   document.getElementById("edit").style.display='block';  
+   document.getElementById("edit").style.display='block';
   // document.getElementById("main").style.display='none';
-  document.getElementById("main").style.opacity=0.3; 
-  document.getElementById("sidebar").style.opacity=0.3; 
-  // document.getElementById("sidebar").style.display='none';  
+  document.getElementById("main").style.opacity=0.3;
+  document.getElementById("sidebar").style.opacity=0.3;
+  // document.getElementById("sidebar").style.display='none';
 }
   function Lock_CheckForm(theForm)
-{   
+{
    document.getElementById("edit").style.display='none';
-  document.getElementById("main").style.opacity=1; 
-  document.getElementById("sidebar").style.opacity=1; 
-  return false;   
-} 
+  document.getElementById("main").style.opacity=1;
+  document.getElementById("sidebar").style.opacity=1;
+  return false;
+}
 </script>
-    <div class="main" id="main">     
-    <% for (var i = 0; i < posts.lengths; ++i) { %>
+    <div class="main" id="main">
+    <% for (var i = 0; i < posts.length; ++i) { %>
     <% post = posts[i]; %>
       <div class="message">
         <div class="information">
           <input type="image" src="/img/bubble.png" class="bubble"/>
-          <span class="message_num"><%= post.id %></span>   <!-- 喵要加上去哇！！！ -->
+          <span class="message_num"><%= post.comments.length %></span>   <!-- 喵要加上去哇！！！ -->
           <span class="message_title"><%= post.title %></span>
           <span class="message_place"><%= post.address %></span>
           <span class="message_sender"><%= post.author.username %></span>
-         </div>
-         <div class="message_content">
-            <p><%= post.content %></p>
-         </div>
-         <div class="message_tail">
-              <span class="tutor">已有导师</span>
-          <input type="image" src="/img/tutor1.png" />
-          <input type="image" src="/img/tutor2.png" />
-          <span>......</span>
+        </div>
+        <div class="message_content">
+          <p><%= post.content %></p>
+        </div>
+        <div class="message_tail">
+          <span class="tutor">已有导师</span>
+          <img src="/img/tutor1.png" />
+          <img src="/img/tutor2.png" />
+          <span>...</span>
           <span class="tutor">已有伙伴</span>
-          <input type="image" src="/img/company1.png" />
-              <span class="good"><input type="image" src="/img/good.png" style="margin-right:10px" />21</span>        
-            </div>
+          <img src="/img/company1.png" />
+            <span class="good"><input type="image" src="/img/good.png" style="margin-right:10px" />21</span>
+        </div>
       </div>
-    <% } %> 
-    <div class="message">
-           <input type="image" src="/img/bubble.png" class="bubble"/>        
-    </div>
-    <div class="message">
-           <input type="image" src="/img/bubble.png" class="bubble"/>
-    </div>
-    <div class="message">
-           <input type="image" src="/img/bubble.png" class="bubble"/>
-    </div>
+    <% } %>
     <div class="more">
-               <div class="more_content"><a href="#">......</a><span>更多</span></div>
+      <div class="more_content"><a href="#">......</a><span>更多</span></div>
     </div>
   </div>
   <div class="sidebar" id="sidebar">
@@ -69,7 +60,7 @@ function openwin()
             <div style="margin-bottom:30px"><span>2</span></div>
             <div style="margin-bottom:30px"><span>3</span></div>
             -->
-        </div> 
+        </div>
         <ul class="head">
             <li><span>1</span><input type="image" src="/img/rank1.png"  /></li>
             <!--传良师益友用户头像和ID给我 -->
@@ -92,9 +83,9 @@ function openwin()
            <input type="image" src="/img/gragh.jpg" />
            <span>图片</span>
            <select name="school" class="select">
-                 <option>下沙</option>
-                 <option>桐乡</option>
-                 <option>不限</option>
+                 <option value="下沙">下沙</option>
+                 <option value="桐乡">桐乡</option>
+                 <option value="不限">不限</option>
            </select>
           <textarea type="text" name="content" class="edit_content"></textarea>
       </div>
@@ -106,15 +97,12 @@ function openwin()
       body =
         title: $('input[name="subject"]').val()
         content: $('input[name="content"]').val()
-        address: $('input[name="school"]').val()
-      session =
-        user: $('input[name=""]').val()
+        address: $('select[name=school]')[0].value
       $.post '/api/post/new', body, (res, status) ->
-        console.log res
         if res.code isnt 0
-          alert '无效的用户名或密码'
+          alert '发送失败，请检查帖子内容'
         else
-          window.location.href = '/'
+          window.location.reload()
   </script>
 
 <% include footer %>

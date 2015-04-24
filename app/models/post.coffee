@@ -16,6 +16,16 @@ PostSchema = new Schema
     type: Schema.Types.ObjectId
     ref: 'User'
   ]
+  likes: [
+    type: Schema.Types.ObjectId
+    ref: 'User'
+  ]
+  comments: [
+    type: Schema.Types.ObjectId
+    ref: 'Comment'
+  ]
+  updatedAt: Date
+  createdAt: Date
 
 PostSchema.virtual('date').get -> this._id.getTimestamp()
 

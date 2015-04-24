@@ -12,7 +12,7 @@ gulp.task('develop', function () {
   }).on('restart', function () {
     setTimeout(function () {
       livereload.changed(__dirname);
-    }, 500);
+    }, 1500);
   });
 });
 

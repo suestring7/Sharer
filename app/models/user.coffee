@@ -10,6 +10,9 @@ UserSchema = new Schema
   password: String
   email: String
   skills: [String]
+  intro: String
+  telephone: String
+
 
 UserSchema.path('username').validate (value) ->
   return value.length >= 4 && value.length <= 8
