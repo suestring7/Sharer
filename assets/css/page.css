@@ -1,6 +1,7 @@
 body {
 	background-image: url(../img/mainPage.png);
 	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 a {
 	text-decoration: none;
@@ -10,6 +11,7 @@ a {
 	background-image: url(../img/title.png);
 	background-repeat: no-repeat;
 	background-color: black;
+	background-attachment: fixed;
 	opacity: 0.68;
 	z-index: 5;
 	margin:0;
