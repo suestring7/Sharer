@@ -35,7 +35,7 @@ background:#000000;
 	      <div width="100px"><p>旧密码</p></div>
 			  <p><input type="password" name="old" /></p>
 			  <p>新密码</p>
-			  <p><input type="password" name="password" /></p>
+			  <p><input type="password" name="new" /></p>
 			  <p>确认密码</p>
 			  <p><input type="password" name="repeat" /></p>
 			  <p><span><input id="modify-password" type="submit" value="确认" /></span><span><input type="reset" value="取消" /></span></p>
@@ -52,7 +52,7 @@ $ ->
   $('#modify-password').click ->
     $.post '/api/user/password/update',
       old: $('input[name=old]').val()
-      password: $('input[name=password]').val()
+      password: $('input[name=new]').val()
       repeat: $('input[name=repeat]').val()
     , (data, status) ->
       if data.code isnt 0

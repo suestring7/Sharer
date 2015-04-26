@@ -27,14 +27,6 @@ router.get '/contact', (req, res, next) ->
   res.render 'contact',
     title: '联系方式 - Sharer'
 
-router.get '/post', (req, res, next) ->
-  res.render 'post',
-    title: '我要发帖 - Sharer'
-
-router.get '/posts', (req, res, next) ->
-  res.render 'posts',
-    title: '帖子首页 - Sharer'
-
 router.get '/ranklist', (req, res, next) ->
   res.render 'ranklist',
     title: '排名 - Sharer'
