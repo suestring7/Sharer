@@ -23,6 +23,11 @@ router.get '/welcome', (req, res, next) ->
   res.render 'welcome',
     title: '欢迎 - Sharer'
 
+router.get '/post', (req, res, next) ->
+  res.render 'post',
+    title: '测试 - Sharer'
+
+
 router.get '/contact', (req, res, next) ->
   res.render 'contact',
     title: '联系方式 - Sharer'
