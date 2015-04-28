@@ -15,7 +15,7 @@ router.get '/', Promise.coroutine (req, res, next) ->
     res.render 'index',
       title: '首页 - Sharer'
       user: req.session.user
-      posts: yield Post.find().sort('-updatedAt').execAsync()
+      posts: yield Post.find().populate('author').populate('leaders').populate('friends').sort('-updatedAt').execAsync()
   catch e
     res.send JSON.stringify e
 
