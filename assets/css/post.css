@@ -35,8 +35,9 @@
 }
 .pcontent{
 	vertical-align: center;
-	text-align: center;
+	//text-align: center;
 	height: 75%;
+	margin: 25px;
 }
 .reply{
 	text-align: center;
