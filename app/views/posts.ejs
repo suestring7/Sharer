@@ -5,7 +5,7 @@ function openwin()
 {
    document.getElementById("edit").style.display='block';  
   // document.getElementById("main").style.display='none';
-  document.getElementById("black-overlay").style.z-index="5";
+  document.getElementById("black-overlay").style.display='block';
   // document.getElementById("sidebar").style.display='none';  
 }
   function Lock_CheckForm(theForm)
@@ -14,6 +14,16 @@ function openwin()
   document.getElementById("black-overlay").style.display="none";
   return false;   
 } 
+window.document.onkeydown = miao;
+function miao(evt){
+evt = (evt) ? evt : window.event
+if (evt.keyCode) {
+   if(evt.keyCode == 13){
+   		document.getElementById("edit").style.display='block';  
+  		document.getElementById("black-overlay").style.display='block';
+   }
+}
+}
 </script>
 	<div class="right">
 		<div id="teachers" class="style1">
@@ -26,7 +36,7 @@ function openwin()
 		</div>
 		<div class="invite"><a>邀请用户</a></div>
 	</div>
-	<div class="post">
+	<div class="post" onkeydown="openwin()">
 		<div id="author" class="tx"></div>
 		<span id="post_place" class="padr">桐乡</span>
 		<div id="post_title" class="ptitle">帖子主题</div>
@@ -56,4 +66,16 @@ function openwin()
       <div style="height:30px"><button id="submit" class="btn" name="sbmt">发表</button> </div>
   </div>
 <div class="black-overlay" style="display:none;z-index:8" id="black-overlay"></div>
+<!--参照index里面的乱改改的～ -->
+<script type="text/coffeescript">
+  $ ->
+    $('#submit').click ->
+      body =
+        content: $('input[name="content"]').val()
+      $.post '/api/post/new', body, (res, status) ->
+        if res.code isnt 0
+          alert '发送失败，请检查帖子内容'
+        else
+          window.location.reload()
+  </script>
 <% include footer %>

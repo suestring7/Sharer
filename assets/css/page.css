@@ -9,8 +9,7 @@ a {
 .title{
 	background-image: url(../img/title.png);
 	background-repeat: no-repeat;
-	background-color: black;
-	opacity: 0.68;
+	background-color: rgba(0,0,0,.4);
 	z-index: 5;
 	margin:0;
 }
@@ -108,6 +107,10 @@ th {
 	float: left;
 	display: inline;
 	position: relative;
+	width: 150px;
+}
+.changeSchool span{
+	margin-right: 10px;
 }
 .menu ul, .footer_c ul, .rtable{
 	top: 0;
@@ -124,9 +127,12 @@ th {
 	font-size: 17px;
 }
 .searchBox{
-	margin-top: 15px;
+	margin-top: 10px;
 	float:right;
 	margin-right: 150px;
+	background-color: rgba(0,0,0,.8);
+	border-radius: 15px;
+	padding:5px 10px;
 }
 .footer{
 	position: fixed;
@@ -262,4 +268,77 @@ border:none;
 font-size:20px;
 margin-top:0;
 margin-left: 15px;
+}
+.schSelect{
+	float: right;
+	position: relative;
+	display: none;
+	margin-top: -40px;
+	padding-top: 40px;
+	z-index: 8;
+}
+.schSelect:hover{
+	display: inline;
+}
+.sS{
+	position: relative;
+	z-index: 5;
+}
+.sS:hover + .schSelect{
+	display: inline;
+}
+.schSelect .select li{
+	padding: 0 20px;
+	width: 120px;
+	text-align: center;
+}
+.tS{
+	position: relative;
+	z-index: 5;
+}
+.tS:hover + .typSelect{
+	display: inline;
+}
+.typSelect:hover{
+	display: inline;
+}
+.typSelect{
+	float: left;
+	width: 60px;
+	margin-right: -60px;
+	display: none;
+	position: relative;
+	z-index: 8;
+	margin-bottom: -90px;
+}
+.typSelect .select{
+	margin-left: -23px;
+}
+.typSelect .select li{
+	background-color: rgba(0,0,0,.6);
+	color: white;
+	font-size: 14px;
+	padding: 0 3px;
+	margin: 1px 0;
+	line-height: 24px;
+}
+.select{
+	margin:0;
+}
+.select li{
+	float: left;
+	padding: 5px 3px;
+	margin: 1px 0;
+	display: inline;
+	font-size: 18px;
+	color: black;
+	border: none;
+	background-color: rgba(255,255,255,0.5);
+}
+.btn_search{
+	background-color: rgba(255,255,255,0.4);
+	color: rgba(255,255,255,0.7);
+	border-radius: 5px;
+	padding: 3px 5px;
+	border: none;
 }

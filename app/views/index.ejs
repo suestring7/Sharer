@@ -23,14 +23,13 @@ function openwin()
     <% post = posts[i]; %>
       <div class="message">
         <div class="information">
-          <input type="image" src="/img/bubble.png" class="bubble"/>
-          <span class="message_num"><%= post.comments.length %></span>   <!-- 喵要加上去哇！！！ -->
+          <span class="message_num" ><%= post.comments.length %></span>   
           <span class="message_title"><%= post.title %></span>
           <span class="message_place"><%= post.address %></span>
-          <span class="message_sender"><%= post.author.username %></span>
+          <span class="message_sender"><%= post.author.username %>阿柒GoGoGo</span>
         </div>
         <div class="message_content">
-          <p><%= post.content %></p>
+          <p style="margin-left:80px;"><%= post.content %>窝好困嘤嘤嘤</p>
         </div>
         <div class="message_tail">
           <span class="tutor">已有导师</span>

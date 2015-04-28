@@ -15,8 +15,7 @@ background-color:rgba(0,0,0,0.6);
 font-size:22px;
 font-family:'MicrosoftYaHeiUI';
 border-radius:10px;
-padding-left:5px;
-padding-right:5px;
+padding:3px 5px;
 margin-bottom:20px;
 }
 div#name input[type=button]{
@@ -24,7 +23,7 @@ color:#FFFFFF;
 border:2px rgba(0,0,0,0);
 background-color:rgba(0,0,0,0);
 font-size:20px;
-font-family:'YouYuan';
+font-family:'Microsoft YaHei UI';
 float:right;
 }
 .information{
@@ -37,7 +36,7 @@ border-radius:10px;
 margin-top:10px;
 margin-bottom:10px;
 font-size:20px;
-font-family:'YouYuan';
+font-family:'Microsoft YaHei UI';
 }
 div#right{
 position:absolute;
