@@ -19,17 +19,16 @@ function openwin()
 }
 </script>
     <div class="main" id="main">
-    <% for (var i = 0; i < posts.length; ++i) { %>
-    <% post = posts[i]; %>
+    <% posts.forEach(function (post) { %>
       <div class="message">
         <div class="information">
-          <span class="message_num"><%= post.comments.length %></span>   <!-- 喵要加上去哇！！！ -->
+          <span class="message_num"><%= post.comments.length %></span>
           <a class="post-link" href="/post/<%= post._id %>"><span class="message_title"><%= post.title %></span></a>
           <span class="message_place"><%= post.address %></span>
-          <span class="message_sender"><%= post.author.username %>阿柒GoGoGo</span>
+          <span class="message_sender"><%= post.author.username %></span>
         </div>
         <div class="message_content">
-          <p style="margin-left:80px;"><%= post.content %>窝好困嘤嘤嘤</p>
+          <p style="margin-left:80px;"><%= post.content %></p>
         </div>
         <div class="message_tail">
           <span class="tutor">已有导师</span>
@@ -41,7 +40,7 @@ function openwin()
             <span class="good"><input type="image" src="/img/good.png" style="margin-right:10px" />21</span>
         </div>
       </div>
-    <% } %>
+    <% }) %>
     <div class="more">
       <div class="more_content"><a href="#">......</a><span>更多</span></div>
     </div>

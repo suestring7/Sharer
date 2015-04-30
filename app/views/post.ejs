@@ -3,23 +3,23 @@
 <script type="text/javascript">
 function openwin()
 {
-   document.getElementById("edit").style.display='block';  
+   document.getElementById("edit").style.display='block';
   // document.getElementById("main").style.display='none';
   document.getElementById("black-overlay").style.display='block';
-  // document.getElementById("sidebar").style.display='none';  
+  // document.getElementById("sidebar").style.display='none';
 }
   function Lock_CheckForm(theForm)
-{   
+{
    document.getElementById("edit").style.display='none';
   document.getElementById("black-overlay").style.display="none";
-  return false;   
-} 
+  return false;
+}
 window.document.onkeydown = miao;
 function miao(evt){
 evt = (evt) ? evt : window.event
 if (evt.keyCode) {
    if(evt.keyCode == 13){
-   		document.getElementById("edit").style.display='block';  
+   		document.getElementById("edit").style.display='block';
   		document.getElementById("black-overlay").style.display='block';
    }
 }
@@ -38,9 +38,9 @@ if (evt.keyCode) {
 	</div>
 	<div class="post" onkeydown="openwin()">
 		<div id="author" class="tx"></div>
-		<span id="post_place" class="padr">桐乡</span>
-		<div id="post_title" class="ptitle">帖子主题</div>
-		<div id="post_content" class="pcontent">帖子内容......</div>
+		<span id="post_place" class="padr"><%= post.address %></span>
+		<div id="post_title" class="ptitle"><%= post.title %></div>
+		<div id="post_content" class="pcontent"><%= post.content %></div>
 		<div id="post_footer" class="pf">
 			分享至：
 			<img src="/img/t.png" href=""/>
