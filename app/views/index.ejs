@@ -28,7 +28,7 @@ function openwin()
           <span class="message_sender"><%= post.author.username %></span>
         </div>
         <div class="message_content">
-          <p style="margin-left:80px;"><%= post.content %></p>
+          <p style="margin-left:80px;"><%= (post.content || '').split('\n')[0] %></p>
         </div>
         <div class="message_tail">
           <span class="tutor">已有导师</span>
@@ -47,7 +47,7 @@ function openwin()
   </div>
   <div class="sidebar" id="sidebar">
       <div class="img">
-       <img src="/img/id.jpg" />
+       <img src= <%= user ? "/img/id.jpg" : "/img/anomy.png" %> />
        <p><%= user ? user.username : '未登录的账户' %></p>
        <button type="button" class="button" onclick="openwin()">我要发帖</button>
       </div>

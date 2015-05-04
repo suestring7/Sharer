@@ -5,7 +5,9 @@ body {
   background-repeat: no-repeat;
   font-family: 'Microsoft Ya Hei UI';
 }
-
+*{
+  font-family:'MicrosoftYaHeiUI';
+}
 a {
   color: #00B7FF;
 }
