@@ -1,14 +1,28 @@
+<script type="text/javascript">
+	var click=1;
+	function show(){
+		if(click%2)
+			document.getElementById("Announce").style.display='block';
+		else
+			document.getElementById("Announce").style.display='none';
+		click++;
+	}
+</script>
+<div id="Announce">
+	<p>亲，如果您在使用中遇到任何问题请通过 “联系我们”中提供的联系方式将您的宝贵意见告知我们，我们会在下个工作日前回复</p>
+</div>
 <div class="footer">
-		<div class="publicColumn"><span>公告栏</span></div>
-		<div class="footer_c">
-			<ul>
-				<li><a href="/security">安全中心</a></li>
-				<li>注册协议</li>
-				<li>免责声明</li>
-				<li><a href="/contact">联系我们</a></li>
-				<li>关注我们</li>
-			</ul>
-		</div>
+	<div class="publicColumn" onclick="show()"><span><a>公告栏</a></span></div>
+	<div class="footer_c">
+		<ul>
+			<li><a href="/security">安全中心</a></li>
+			<li>注册协议</li>
+			<li>免责声明</li>
+			<li><a href="/contact">联系我们</a></li>
+			<li>关注我们</li>
+		</ul>
 	</div>
+
+</div>
 </body>
 </html>

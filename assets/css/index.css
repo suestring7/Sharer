@@ -32,6 +32,7 @@ margin-left: 5px;
 }
 .message_title{
 font-size:24px;
+font-weight: bold;
 //font-family:'YouYuan';
 vertical-align:baseline;
 margin-left:20px;
@@ -53,12 +54,17 @@ margin-top:8px;
 margin-right: 6px;
 }
 .message_content{
-font-size:18px;
+font-size:16px;
 //font-family:'YouYuan';
 }
 .message_tail{
 margin-bottom:5px;
 padding-bottom: 5px;
+
+}
+.message_tail img{
+margin-top: 10px;
+vertical-align: bottom;
 }
 .tutor{
 font-size:15.94px;
@@ -68,13 +74,15 @@ color:#FFFFFF;
 padding: 3px 5px;
 margin-bottom:5px;
 border-radius: 4px;
+display: inline-block;
 }
 .good{
 float:right;
 font-size:24px;
 font-family:'ºÚÌå';
 position: relative;
-margin-top: 10px;
+margin-top: 15px;
+//vertical-align: bottom;
 }
 .more{
 text-align:right;
@@ -195,11 +203,13 @@ margin-left: 0;
 height:40px;
 width:40px;
 border-radius: 20px;
+vertical-align: sub;
 }
 .head li{
 list-style-type: none;
 text-decoration: none;
 padding-left: 0;
+padding-bottom: 3px;
 margin-left: 0;
 margin-top:10px;
 border-bottom:3px solid #000;
